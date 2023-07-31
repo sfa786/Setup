@@ -14,11 +14,9 @@ Invoke-WebRequest https://raw.githubusercontent.com/sfa786/myfish/main/starship.
 
 New-Item -ItemType directory -Force -Path  $env:USERPROFILE\Setup
 #New-Item -ItemType  -Force -Path  $env:USERPROFILE\Setup\psprofile.ps1
-Invoke-WebRequest https://raw.githubusercontent.com/sfa786/myfish/main/psprofile.ps1 -OutFile $env:USERPROFILE\Setup\psprofile.ps1
-
 New-Item -Path $PROFILE -Type File -Force
+Invoke-WebRequest https://raw.githubusercontent.com/sfa786/Setup/main/psprofile.ps1 -OutFile $PROFILE
 
-Copy-Item -Path  $env:USERPROFILE\Setup\psprofile.ps1 -Destination $PROFILE
 
 
 Invoke-WebRequest -OutFile $env:USERPROFILE\Setup\FiraCode.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/FiraCode.zip
