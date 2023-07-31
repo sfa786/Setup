@@ -16,7 +16,7 @@ Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
 
 #Allias
 Set-Alias np notepad
-Set-Alias c cls
+Set-Alias ccccc cls
 
 function My-Ping {
     param(
@@ -29,7 +29,7 @@ function My-Ping {
 }
 
 # Create an alias for My-Ping function with the name "mping"
-New-Alias -Name "p" -Value "My-Ping"
+Set-Alias -Name "p" -Value "My-Ping"
 
 
 
@@ -41,4 +41,4 @@ Write-Host $ip
 }
 
 # Create an alias for My-Ping function with the name "mping"
-New-Alias -Name "myip" -Value "PublicIp"
+Set-Alias -Name "myip" -Value "PublicIp"
