@@ -17,6 +17,7 @@ Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
 #Allias
 Set-Alias np notepad
 Set-Alias c cls
+set-alias cat bat -Option AllScope
 
 function My-Ping {
     param(
@@ -42,3 +43,11 @@ Write-Host $ip
 
 # Create an alias for My-Ping function with the name "mping"
 Set-Alias -Name "myip" -Value "PublicIp"
+
+function SyncProfile{
+    Invoke-WebRequest https://raw.githubusercontent.com/sfa786/Setup/main/psprofile.ps1 -OutFile $PROFILE
+    .$PROFILE
+
+}
+
+Set-Alias -Name "sync" -Value "SyncProfile"
