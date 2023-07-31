@@ -10,7 +10,7 @@ winget install Starship --accept-source-agreements --accept-package-agreements
 winget install sharkdp.bat --accept-source-agreements --accept-package-agreements
 winget install Microsoft.WindowsTerminal --accept-source-agreements --accept-package-agreements
 
-#Enable Some Required Feature
+#Enable Some Required Feature Telnet Client, SSH client
 dism /online /Enable-Feature /FeatureName:TelnetClient
 Add-WindowsCapability -Online -Name OpenSSH.Client~~~~0.0.1.0
 
