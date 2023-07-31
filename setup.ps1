@@ -26,7 +26,7 @@ Expand-Archive  $env:USERPROFILE\Setup\FiraCode.zip -DestinationPath  $env:USERP
 
 $FontFolder = "$env:USERPROFILE\Setup\FiraCode"
 $FontItem = Get-Item -Path $FontFolder
-$FontList = Get-ChildItem -Path "$FontItem\*" -Include ('*Complete Mono Windows*.ttf')
+$FontList = Get-ChildItem -Path "$FontItem\*" -Include ('*.ttf')
 foreach ($Font in $FontList)  {
     Write-Host 'Installing font -' $Font.BaseName
     $FontName = $Font.BaseName + " (TrueType)"
