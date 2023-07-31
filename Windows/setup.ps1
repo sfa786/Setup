@@ -4,9 +4,11 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 Install-Module -Name PSReadLine -Force
 Install-Module -Name Terminal-Icons -Force
 
+
 winget install Starship --accept-source-agreements --accept-package-agreements
 #winget install Microsoft.Powertoys --accept-source-agreements --accept-package-agreements # Can Ignore
 winget install sharkdp.bat --accept-source-agreements --accept-package-agreements
+winget install Microsoft.WindowsTerminal --accept-source-agreements --accept-package-agreements
 
 
 New-Item -ItemType directory -Force -Path  $env:USERPROFILE\.config
