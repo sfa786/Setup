@@ -10,6 +10,9 @@ winget install Starship --accept-source-agreements --accept-package-agreements
 winget install sharkdp.bat --accept-source-agreements --accept-package-agreements
 winget install Microsoft.WindowsTerminal --accept-source-agreements --accept-package-agreements
 
+#Enable Some Required Feature
+dism /online /Enable-Feature /FeatureName:TelnetClient
+Add-WindowsCapability -Online -Name OpenSSH.Client~~~~0.0.1.0
 
 New-Item -ItemType directory -Force -Path  $env:USERPROFILE\.config
 Invoke-WebRequest https://raw.githubusercontent.com/sfa786/Setup/main/Common/starship.toml -OutFile  $env:USERPROFILE\.config\starship.toml
