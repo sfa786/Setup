@@ -18,6 +18,9 @@ Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
 Set-Alias np notepad
 Set-Alias c cls
 set-alias cat bat -Option AllScope
+Set-Alias -Name "myip" -Value "PublicIp" # Create an alias for My-Ping function with the name "mping"
+Set-Alias -Name "p" -Value "My-Ping" # Create an alias for My-Ping function with the name "mping"
+Set-Alias -Name "sync" -Value "SyncProfile" # Create an alias for SyncProfile
 
 function My-Ping {
     param(
@@ -29,11 +32,6 @@ function My-Ping {
     ping $TargetHost -l 2000 -t
 }
 
-# Create an alias for My-Ping function with the name "mping"
-Set-Alias -Name "p" -Value "My-Ping"
-
-
-
 function PublicIp 
 {
 	$ip = Invoke-WebRequest -Uri "https://ifconfig.me" -UseBasicParsing | Select-Object -ExpandProperty Content
@@ -41,13 +39,8 @@ Write-Host $ip
 
 }
 
-# Create an alias for My-Ping function with the name "mping"
-Set-Alias -Name "myip" -Value "PublicIp"
-
 function SyncProfile{
     Invoke-WebRequest https://raw.githubusercontent.com/sfa786/Setup/main/psprofile.ps1 -OutFile $PROFILE
     .$PROFILE
 
 }
-
-Set-Alias -Name "sync" -Value "SyncProfile"
