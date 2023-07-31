@@ -16,7 +16,7 @@ Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
 
 #Allias
 Set-Alias np notepad
-Set-Alias ccccc cls
+Set-Alias c cls
 
 function My-Ping {
     param(
