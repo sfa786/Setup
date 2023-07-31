@@ -40,7 +40,7 @@ Write-Host $ip
 }
 
 function SyncProfile{
-    Invoke-WebRequest https://raw.githubusercontent.com/sfa786/Setup/main/psprofile.ps1 -OutFile $PROFILE
+    Invoke-WebRequest https://raw.githubusercontent.com/sfa786/Setup/main/Windows/psprofile.ps1 -OutFile $PROFILE
     .$PROFILE
 
 }

@@ -9,8 +9,8 @@ curl -Lo exa.zip "https://github.com/ogham/exa/releases/latest/download/exa-linu
 sudo unzip -q -o exa.zip bin/exa -d /usr/local
 rm -rf exa.zip
 sh -c "$(curl -fsSL https://starship.rs/install.sh)" -f -y
-mkdir -p ~/.config/fish/ && cd ~/.config/fish/ && wget -NS "https://raw.githubusercontent.com/sfa786/myfish/main/config.fish"
-cd ~/.config/ && wget -NS "https://raw.githubusercontent.com/sfa786/myfish/main/starship.toml"  && cd ~/.config/fish 
+mkdir -p ~/.config/fish/ && cd ~/.config/fish/ && wget -NS "https://raw.githubusercontent.com/sfa786/Setup/main/Linux/config.fish"
+cd ~/.config/ && wget -NS "https://raw.githubusercontent.com/sfa786/Setup/main/Common/starship.toml"  && cd ~/.config/fish 
 
 
 chsh

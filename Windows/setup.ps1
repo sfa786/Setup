@@ -10,12 +10,12 @@ winget install sharkdp.bat --accept-source-agreements --accept-package-agreement
 
 
 New-Item -ItemType directory -Force -Path  $env:USERPROFILE\.config
-Invoke-WebRequest https://raw.githubusercontent.com/sfa786/Setup/main/starship.toml -OutFile  $env:USERPROFILE\.config\starship.toml
+Invoke-WebRequest https://raw.githubusercontent.com/sfa786/Setup/main/Common/starship.toml -OutFile  $env:USERPROFILE\.config\starship.toml
 
 New-Item -ItemType directory -Force -Path  $env:USERPROFILE\Setup
 #New-Item -ItemType  -Force -Path  $env:USERPROFILE\Setup\psprofile.ps1
 New-Item -Path $PROFILE -Type File -Force
-Invoke-WebRequest https://raw.githubusercontent.com/sfa786/Setup/main/psprofile.ps1 -OutFile $PROFILE
+Invoke-WebRequest https://raw.githubusercontent.com/sfa786/Setup/main/Windows/psprofile.ps1 -OutFile $PROFILE
 
 
 
