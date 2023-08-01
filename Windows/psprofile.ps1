@@ -21,6 +21,7 @@ set-alias cat bat -Option AllScope
 Set-Alias -Name "myip" -Value "PublicIp" # Create an alias for My-Ping function with the name "mping"
 Set-Alias -Name "p" -Value "My-Ping" # Create an alias for My-Ping function with the name "mping"
 Set-Alias -Name "sync" -Value "SyncProfile" # Create an alias for SyncProfile
+Set-Alias -Name "ll" -Value "ListLibrary"
 
 function My-Ping {
     param(
@@ -44,4 +45,8 @@ function SyncProfile{
     Invoke-WebRequest https://raw.githubusercontent.com/sfa786/Setup/main/Common/starship.toml -OutFile  $env:USERPROFILE\.config\starship.toml
     .$PROFILE
 
+}
+
+function ListLibrary {
+    get-childItem -Force . | Format-TerminalIcons
 }
