@@ -9,6 +9,13 @@ winget install Starship --accept-source-agreements --accept-package-agreements
 #winget install Microsoft.Powertoys --accept-source-agreements --accept-package-agreements # Can Ignore
 winget install sharkdp.bat --accept-source-agreements --accept-package-agreements
 winget install Microsoft.WindowsTerminal --accept-source-agreements --accept-package-agreements
+#winget install "Microsoft Remote Desktop" --accept-source-agreements --accept-package-agreements
+winget install RARLab.WinRAR --accept-source-agreements --accept-package-agreements
+#winget install Greenshot.Greenshot --accept-source-agreements --accept-package-agreements
+winget install Git.Git --accept-source-agreements --accept-package-agreements
+winget install GitHub.cli --accept-source-agreements --accept-package-agreements
+winget install Logitech.GHUB --accept-source-agreements --accept-package-agreements
+winget install subhra74.XtremeDownloadManager --accept-source-agreements --accept-package-agreements
 
 #Enable Some Required Feature Telnet Client, SSH client
 dism /online /Enable-Feature /FeatureName:TelnetClient
@@ -35,6 +42,6 @@ foreach ($Font in $FontList)  {
     $FontName = $Font.BaseName + " (TrueType)"
     Write-Host $FontName
     Copy-Item $Font "C:\Windows\Fonts"
-    New-ItemProperty -Name $FontName -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\Fonts" -PropertyType string -Value $Font.name       
+    Set-ItemProperty -Name $FontName -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\Fonts" -PropertyType string -Value $Font.name       
   } 
 
