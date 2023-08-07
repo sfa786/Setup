@@ -3,25 +3,14 @@ Add-Type -AssemblyName System.Windows.Forms
 # List of applications to install
 $appsToInstall = @(
     @{Name = "Starship";            Package = "Starship"},
-    @{Name = "BatCat";                 Package = "sharkdp.bat"},
-    @{Name = "Windows Terminal";    Package = "Microsoft.WindowsTerminal"},
-    @{Name = "WinRAR";              Package = "RARLab.WinRAR"},
-    @{Name = "Git";                 Package = "Git.Git"},
-    @{Name = "GitHub Cli";          Package = "GitHub.cli"},
-    @{Name = "Logitech ";           Package = "Logitech.GHUB"},
-    @{Name = "XDM";                 Package = "subhra74.XtremeDownloadManager"},
-    @{Name = "GreenShot";           Package = "Greenshot.Greenshot"},
-    @{Name = "RDP";                 Package = "Microsoft Remote Desktop"},
-    @{Name = "PowerToys";           Package = "Microsoft.Powertoys"},
-    @{Name = "Speedtest by Ookla";  Package = "9NBLGGH4Z1JC"},
-    @{Name = "GreenShot";           Package = "Greenshot.Greenshot"},
-    @{Name = "GreenShot";           Package = "Greenshot.Greenshot"}
+    @{Name = "BatCat";              Package = "sharkdp.bat"},
+    @{Name = "Windows Terminal";    Package = "Microsoft.WindowsTerminal"}
+    # ... (Other apps here)
 )
-
 
 # Function to install an app using winget silently
 function Install-AppWithWingetSilent {
-    param(
+    param (
         [string]$AppName
     )
 
@@ -30,13 +19,11 @@ function Install-AppWithWingetSilent {
         Write-Host "Installing $AppName..."
         Write-Host
 
-        winget install $AppName  --verbose --accept-source-agreements --accept-package-agreements 
+        winget install $AppName --verbose --accept-source-agreements --accept-package-agreements
         $exitCode = $LASTEXITCODE
-        if ($exitCode -eq "0"){ Write-Host "$AppName has been installed!"}
-        
-        
-    }
-    else {
+        if ($exitCode -eq "0") { Write-Host "$AppName has been installed!" }
+
+    } else {
         Write-Host "$AppName is already installed on this system."
     }
 }
@@ -49,46 +36,64 @@ $form.FormBorderStyle = "FixedDialog"
 $form.MaximizeBox = $false
 $form.StartPosition = "CenterScreen"
 
-# Create a flow layout panel to hold the checkboxes
-$flowLayoutPanel = New-Object Windows.Forms.FlowLayoutPanel
-$flowLayoutPanel.Dock = "Fill"
-$flowLayoutPanel.Padding = New-Object Windows.Forms.Padding(20)
+# Create a table layout panel to hold the checkboxes
+$tableLayoutPanel = New-Object Windows.Forms.TableLayoutPanel
+$tableLayoutPanel.Dock = "Fill"
+$tableLayoutPanel.Padding = New-Object Windows.Forms.Padding(20)
 
 # Create custom font for labels and checkboxes
 $customFont = New-Object System.Drawing.Font("Arial", 12, [System.Drawing.FontStyle]::Regular)
 
-# Create checkboxes for each app and add them to the flow layout panel
-$checkBoxes = @()
+# Create checkboxes for each app and add them to the table layout panel
+$rowIndex = 0
 foreach ($app in $appsToInstall) {
+    $label = New-Object Windows.Forms.Label
+    $label.Text = $app.Name
+    $label.Font = $customFont
+    $label.ForeColor = "DarkBlue"
+
     $checkBox = New-Object Windows.Forms.CheckBox
-    $checkBox.Text = $app.Name
     $checkBox.Tag = $app.Package
+    $checkBox.AutoSize = $true
     $checkBox.Font = $customFont
     $checkBox.ForeColor = "DarkBlue"
-    $checkBox.AutoSize = $true
-    $checkBoxes += $checkBox
-    $flowLayoutPanel.Controls.Add($checkBox)
+
+    $tableLayoutPanel.Controls.Add($label, 0, $rowIndex)
+    $tableLayoutPanel.Controls.Add($checkBox, 1, $rowIndex)
+
+    $rowIndex++
 }
 
 # Create an "Install" button
 $installButton = New-Object Windows.Forms.Button
-$installButton.Text = "Install Selected Apps"
+$installButton.Text = "Install"
 $installButton.Font = $customFont
 $installButton.ForeColor = "White"
 $installButton.BackColor = "DarkBlue"
 $installButton.FlatStyle = "Flat"
 $installButton.Add_Click({
-    $selectedApps = $checkBoxes | Where-Object { $_.Checked }
+    $selectedApps = $tableLayoutPanel.Controls | Where-Object { $_ -is [Windows.Forms.CheckBox] -and $_.Checked }
     foreach ($app in $selectedApps) {
         Install-AppWithWingetSilent -AppName $app.Tag
     }
-    
-})
-$flowLayoutPanel.Controls.Add($installButton)
 
-# Add the flow layout panel to the form
-$form.Controls.Add($flowLayoutPanel)
+    # Close the form when installation is complete
+    $form.Close()
+})
+
+$tableLayoutPanel.Controls.Add($installButton, 0, $rowIndex, 2, 1)
+
+# Set column styles for the table layout panel
+$tableLayoutPanel.ColumnStyles.Add((New-Object Windows.Forms.ColumnStyle([Windows.Forms.SizeType]::Percent, 50)))
+$tableLayoutPanel.ColumnStyles.Add((New-Object Windows.Forms.ColumnStyle([Windows.Forms.SizeType]::Percent, 50)))
+
+# Set row styles for the table layout panel
+for ($i = 0; $i -lt $appsToInstall.Count; $i++) {
+    $tableLayoutPanel.RowStyles.Add((New-Object Windows.Forms.RowStyle([Windows.Forms.SizeType]::Absolute, 30)))
+}
+
+# Add the table layout panel to the form
+$form.Controls.Add($tableLayoutPanel)
 
 # Show the form
-$form.Add_Shown({$form.Activate()})
 $form.ShowDialog()

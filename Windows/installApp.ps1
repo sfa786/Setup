@@ -72,7 +72,7 @@ foreach ($app in $appsToInstall) {
 
 # Create an "Install" button
 $installButton = New-Object Windows.Forms.Button
-$installButton.Text = "Install Selected Apps"
+$installButton.Text = "Install"
 $installButton.Font = $customFont
 $installButton.ForeColor = "White"
 $installButton.BackColor = "DarkBlue"
