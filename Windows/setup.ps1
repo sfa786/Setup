@@ -31,9 +31,16 @@ New-Item -Path $PROFILE -Type File -Force
 Invoke-WebRequest https://raw.githubusercontent.com/sfa786/Setup/main/Windows/psprofile.ps1 -OutFile $PROFILE
 
 
+#Download Cursor
+$CursorName="timeline-small-black-ani"
+Invoke-WebRequest -OutFile $env:USERPROFILE\Setup\$CursorName.zip http://www.rw-designer.com/cursor-downloadset.php?id=$CursorName
+Expand-Archive  $env:USERPROFILE\Setup\$CursorName.zip -DestinationPath  C:\Windows\Cursors\$CursorName
+Remove-Item -Path $env:USERPROFILE\Setup\$CursorName.zip -Force
 
+#Install FiraCode
 Invoke-WebRequest -OutFile $env:USERPROFILE\Setup\FiraCode.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/FiraCode.zip
 Expand-Archive  $env:USERPROFILE\Setup\FiraCode.zip -DestinationPath  $env:USERPROFILE\Setup\FiraCode
+Remove-Item -Path $env:USERPROFILE\Setup\FiraCode.zip -Force
 
 $FontFolder = "$env:USERPROFILE\Setup\FiraCode"
 $FontItem = Get-Item -Path $FontFolder
@@ -45,6 +52,7 @@ foreach ($Font in $FontList)  {
     Copy-Item $Font "C:\Windows\Fonts"
     Set-ItemProperty -Name $FontName -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\Fonts" -PropertyType string -Value $Font.name       
   } 
+Remove-Item -Path $env:USERPROFILE\Setup\FiraCode -Force
 
   function Install-Winget {
     # Check if winget is already installed
@@ -73,3 +81,4 @@ foreach ($Font in $FontList)  {
         Write-Host "winget is already installed on this system."
     }
 }
+

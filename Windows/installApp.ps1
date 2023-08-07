@@ -3,7 +3,7 @@ Add-Type -AssemblyName System.Windows.Forms
 # List of applications to install
 $appsToInstall = @(
     @{Name = "Starship";            Package = "Starship"},
-    @{Name = "BatCat";                 Package = "sharkdp.bat"},
+    @{Name = "BatCat";              Package = "sharkdp.bat"},
     @{Name = "Windows Terminal";    Package = "Microsoft.WindowsTerminal"},
     @{Name = "WinRAR";              Package = "RARLab.WinRAR"},
     @{Name = "Git";                 Package = "Git.Git"},
@@ -14,7 +14,7 @@ $appsToInstall = @(
     @{Name = "RDP";                 Package = "Microsoft Remote Desktop"},
     @{Name = "PowerToys";           Package = "Microsoft.Powertoys"},
     @{Name = "Speedtest by Ookla";  Package = "9NBLGGH4Z1JC"},
-    @{Name = "GreenShot";           Package = "Greenshot.Greenshot"},
+    @{Name = "VSCode";              Package = "Microsoft.VisualStudioCode"},
     @{Name = "GreenShot";           Package = "Greenshot.Greenshot"}
 )
 
