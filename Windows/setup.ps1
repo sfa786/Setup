@@ -80,32 +80,3 @@ foreach ($Font in $FontList)  {
     Set-ItemProperty -Name $FontName -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\Fonts" -PropertyType string -Value $Font.name       
   } 
 Remove-Item -Path $env:USERPROFILE\Setup\FiraCode -Force
-
-  function Install-Winget {
-    # Check if winget is already installed
-    if (-not (Get-Command winget.exe -ErrorAction SilentlyContinue)) {
-        Write-Host "Installing winget..."
-        
-        # Get the latest download URL from GitHub release API
-        $URL = "https://api.github.com/repos/microsoft/winget-cli/releases/latest"
-        $URL = (Invoke-WebRequest -Uri $URL).Content | ConvertFrom-Json |
-                Select-Object -ExpandProperty "assets" |
-                Where-Object "browser_download_url" -Match '.msixbundle' |
-                Select-Object -ExpandProperty "browser_download_url"
-
-        # Download the .msixbundle
-        Invoke-WebRequest -Uri $URL -OutFile "Setup.msix" -UseBasicParsing
-
-        # Install the .msixbundle using Add-AppxPackage
-        Add-AppxPackage -Path "Setup.msix"
-
-        # Delete the downloaded file
-        Remove-Item "Setup.msix"
-
-        Write-Host "winget has been installed!"
-    }
-    else {
-        Write-Host "winget is already installed on this system."
-    }
-}
-

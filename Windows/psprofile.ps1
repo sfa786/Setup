@@ -33,12 +33,10 @@ function My-Ping {
     ping $TargetHost -l 2000 -t
 }
 
-function PublicIp 
-{
-	$ip = Invoke-WebRequest -Uri "https://ifconfig.me" -UseBasicParsing | Select-Object -ExpandProperty Content
-Write-Host $ip
-
-}
+function PublicIP {
+         $pIp = Invoke-RestMethod -Uri "http://api.ipify.org?format=json"
+         Write-Host "Your Public IP Address is: $($pIp.ip)"
+    }
 
 function SyncProfile{
     Invoke-WebRequest https://raw.githubusercontent.com/sfa786/Setup/main/Windows/psprofile.ps1 -OutFile $PROFILE
