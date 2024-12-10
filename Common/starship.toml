@@ -23,6 +23,7 @@ disabled = true
 [directory]
 truncation_length = 1
 truncation_symbol = "…/"
+read_only = " 󰌾"
 
 
 [git_branch]
@@ -74,8 +75,8 @@ symbol = " "
 [dart]
 symbol = " "
 
-[directory]
-read_only = " 󰌾"
+
+
 
 [docker_context]
 symbol = " "
