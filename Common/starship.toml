@@ -9,7 +9,9 @@ format = "user: [$user]($style) "
 disabled = true
 show_always = false
 
+
 [hostname]
+ssh_symbol = " "
 ssh_only = false
 format = "on [$hostname](bold red) "
 trim_at = ".companyname.com"
@@ -106,8 +108,7 @@ symbol = " "
 [hg_branch]
 symbol = " "
 
-[hostname]
-ssh_symbol = " "
+
 
 [java]
 symbol = " "
