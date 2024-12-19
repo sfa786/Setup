@@ -13,7 +13,7 @@ show_always = false
 [hostname]
 ssh_symbol = " "
 ssh_only = false
-format = "on [$hostname](bule) "
+format = "on [$hostname](violet) "
 trim_at = "-"
 disabled = false
 
