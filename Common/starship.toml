@@ -13,9 +13,9 @@ show_always = false
 [hostname]
 ssh_symbol = " "
 ssh_only = false
-format = "on [$hostname](bold red) "
-trim_at = ".companyname.com"
-disabled = true
+format = "on [$hostname](bule) "
+trim_at = "-"
+disabled = false
 
 [localip]
 ssh_only = false
