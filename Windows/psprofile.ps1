@@ -39,7 +39,7 @@ function My-Ping {
 
 function PublicIP {
          $pIp = Invoke-RestMethod -Uri "http://api.ipify.org?format=json"
-         Write-Host "Your Public IP Address is: $($pIp.ip)"
+         Write-Host "$($pIp.ip)"
     }
 
 function SyncProfile{
