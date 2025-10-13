@@ -48,6 +48,9 @@ Import-Module -Name Terminal-Icons
 #Install BAT
 winget install sharkdp.bat
 
+winget install ajeetdsouza.zoxide
+
+
 #Install FiraCode:
 
 New-Item -ItemType directory -Force -Path C:\Setup
