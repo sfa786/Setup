@@ -5,6 +5,9 @@ Import-Module -Name Terminal-Icons
 Invoke-Expression (&starship init powershell)
 
 # Make addon listen to history
+Invoke-Expression (& { (zoxide init powershell | Out-String) })
+
+# Make addon listen to history
 Set-PSReadLineOption -PredictionSource History
 
 # Shows navigable menu of all options when hitting Tab
@@ -18,6 +21,7 @@ Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
 Set-Alias np notepad
 Set-Alias c cls
 set-alias cat bat -Option AllScope
+
 Set-Alias -Name "myip" -Value "PublicIp" # Create an alias for My-Ping function with the name "mping"
 Set-Alias -Name "p" -Value "My-Ping" # Create an alias for My-Ping function with the name "mping"
 Set-Alias -Name "sync" -Value "SyncProfile" # Create an alias for SyncProfile
