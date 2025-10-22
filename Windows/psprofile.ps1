@@ -21,6 +21,10 @@ Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
 Set-Alias np notepad
 Set-Alias c cls
 set-alias cat bat -Option AllScope
+set-Alias ls get-childItem -Force
+set-Alias ld get-childItem -Force -Directory
+set-Alias lf get-childItem -Force -File
+set-Alias lh get-childItem -Force -Hidden
 
 Set-Alias -Name "myip" -Value "PublicIp" # Create an alias for My-Ping function with the name "mping"
 Set-Alias -Name "p" -Value "My-Ping" # Create an alias for My-Ping function with the name "mping"
