@@ -22,14 +22,39 @@ Set-Alias np notepad
 Set-Alias c cls
 set-alias cat bat -Option AllScope
 set-Alias ls get-childItem -Force
-set-Alias ld get-childItem -Force -Directory
-set-Alias lf get-childItem -Force -File
-set-Alias lh get-childItem -Force -Hidden
+
+Set-Alias la la
+Set-Alias ld ld
+Set-Alias lf lf
+Set-Alias lh lh
 
 Set-Alias -Name "myip" -Value "PublicIp" # Create an alias for My-Ping function with the name "mping"
 Set-Alias -Name "p" -Value "My-Ping" # Create an alias for My-Ping function with the name "mping"
 Set-Alias -Name "sync" -Value "SyncProfile" # Create an alias for SyncProfile
 Set-Alias -Name "ll" -Value "ListLibrary"
+
+# Show all items (including hidden/system)
+function la {
+    Get-ChildItem -Force @Args
+}
+
+
+# Show only directories
+function ld {
+    Get-ChildItem -Force -Directory @Args
+}
+
+
+# Show only files
+function lf {
+    Get-ChildItem -Force -File @Args
+}
+
+
+# Show only hidden files and folders
+function lh {
+    Get-ChildItem -Force -Hidden @Args
+}
 
 function My-Ping {
     param(
