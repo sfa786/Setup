@@ -25,6 +25,7 @@ set-alias cat bat -Option AllScope
  Remove-Item Alias:ls -Force -ErrorAction SilentlyContinue
  
 Set-Alias ll ll -Option AllScope
+Set-Alias ls ls -Option AllScope
 Set-Alias la la -Option AllScope
 Set-Alias lf lf -Option AllScope
 Set-Alias ld ld -Option AllScope
