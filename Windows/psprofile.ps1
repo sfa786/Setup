@@ -41,23 +41,32 @@ Set-Alias -Name "sync" -Value "SyncProfile" # Create an alias for SyncProfile
 
 
 # Base list 1
-function ls { eza --icons --color=always --group-directories-first  @args }
+function ls 
+{ eza --icons --color=always --group-directories-first  @args }
 # All (including hidden)
-function la { eza --icons --all --color=always --group-directories-first @args }
+function la 
+{ eza --icons --all --color=always --group-directories-first @args }
 # Only directories
-function ld { eza --icons --color=always --group-directories-first -D @args }
+function ld 
+{ eza --icons --color=always --group-directories-first -D @args }
 # Only files
-function lf { eza --icons --color=always -f @args }
+function lf 
+{ eza --icons --color=always -f @args }
 # Long format (with size, date)
-function ll {  eza --icons --long --color=always --group-directories-first --sort=modified --reverse @args  }
+function ll 
+{  eza --icons --long --color=always --group-directories-first --sort=modified --reverse @args  }
 # Long + human readable size
-function lh { eza --long --icons --color=always --group-directories-first --sort=size --total-size --reverse  @args }
+function lh 
+{ eza --long --icons --color=always --group-directories-first --sort=size --total-size --reverse  @args }
 # Sort by type (folders first, then files by type)
-function lx { eza --long --icons --color=always --group-directories-first --sort=extension  @args }
+function lx 
+{ eza --long --icons --color=always --group-directories-first --sort=extension  @args }
 # Sort by name
-function ln { eza --icons --color=always --group-directories-first --sort=name @args }
+function ln 
+{ eza --icons --color=always --group-directories-first --sort=name @args }
 # Show tree view (recursive up to 2 levels)
-function lt3 {eza --icons --level=3 --long --color=always --group-directories-first --sort=modified --reverse @args}
+function lt3 
+{eza --icons --level=3 --long --color=always --group-directories-first --sort=modified --reverse @args}
 
 function My-Ping {
     param(
@@ -81,6 +90,3 @@ function SyncProfile{
 
 }
 
-function ListLibrary {
-    get-childItem -Force . | Format-TerminalIcons
-}
