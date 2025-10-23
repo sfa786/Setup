@@ -22,7 +22,7 @@ Set-Alias np notepad
 Set-Alias c cls
 set-alias cat bat -Option AllScope
  # Define quick short aliases for productivity
- Set-Alias ls ls
+ Set-Alias ll ll
  Set-Alias la la
  Set-Alias lf lf
  Set-Alias ld ld
