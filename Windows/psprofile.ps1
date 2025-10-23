@@ -20,20 +20,20 @@ Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
 #Allias
 Set-Alias np notepad
 Set-Alias c cls
-set-alias cat bat -Option AllScope
+set-alias cat bat 
  # Define quick short aliases for productivity
  Remove-Item Alias:ls -Force -ErrorAction SilentlyContinue
  
-Set-Alias ll ll -Option AllScope
-Set-Alias ls ls -Option AllScope
-Set-Alias la la -Option AllScope
-Set-Alias lf lf -Option AllScope
-Set-Alias ld ld -Option AllScope
-Set-Alias lh lh -Option AllScope
-Set-Alias lx lx -Option AllScope
-Set-Alias ln ln -Option AllScope
-Set-Alias lt lt -Option AllScope
-Set-Alias lt3 lt3 -Option AllScope
+Set-Alias ll ll 
+Set-Alias ls ls 
+Set-Alias la la 
+Set-Alias lf lf 
+Set-Alias ld ld 
+Set-Alias lh lh 
+Set-Alias lx lx 
+Set-Alias ln ln 
+Set-Alias lt lt 
+Set-Alias lt3 lt3 
 
 
 Set-Alias -Name "myip" -Value "PublicIp" # Create an alias for My-Ping function with the name "mping"
