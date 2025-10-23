@@ -24,15 +24,15 @@ set-alias cat bat -Option AllScope
  # Define quick short aliases for productivity
  Remove-Item Alias:ls -Force -ErrorAction SilentlyContinue
  
-# Set-Alias -Name "ls" -Value "ls"
-# Set-Alias -Name "lf" -Value "lf"
-# Set-Alias -Name "ld" -Value "ld"
-# Set-Alias -Name "lt" -Value "lt"
-# Set-Alias -Name "lx" -Value "lx"
-# Set-Alias -Name "ln" -Value "ln"
-# Set-Alias -Name "lh" -Value "lh"
-# Set-Alias -Name "ll" -Value "ll"
-# Set-Alias -Name "lt3" -Value "lt3"
+Set-Alias ll ll -Option AllScope
+Set-Alias la la -Option AllScope
+Set-Alias lf lf -Option AllScope
+Set-Alias ld ld -Option AllScope
+Set-Alias lh lh -Option AllScope
+Set-Alias lx lx -Option AllScope
+Set-Alias ln ln -Option AllScope
+Set-Alias lt lt -Option AllScope
+Set-Alias lt3 lt3 -Option AllScope
 
 
 Set-Alias -Name "myip" -Value "PublicIp" # Create an alias for My-Ping function with the name "mping"
