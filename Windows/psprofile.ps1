@@ -24,15 +24,15 @@ set-alias cat bat -Option AllScope
  # Define quick short aliases for productivity
  Remove-Item Alias:ls -Force -ErrorAction SilentlyContinue
  
-  Set-Alias -Name "ls" -Value "ls"
-  Set-Alias -Name "lf" -Value "lf"
-  Set-Alias -Name "ld" -Value "ld"
-  Set-Alias -Name "lt" -Value "lt"
-  Set-Alias -Name "lx" -Value "lx"
-  Set-Alias -Name "ln" -Value "ln"
-  Set-Alias -Name "lh" -Value "lh"
-  Set-Alias -Name "ll" -Value "ll"
-  Set-Alias -Name "lt3" -Value "lt3"
+Set-Alias -Name "ls" -Value "ls"
+Set-Alias -Name "lf" -Value "lf"
+Set-Alias -Name "ld" -Value "ld"
+Set-Alias -Name "lt" -Value "lt"
+Set-Alias -Name "lx" -Value "lx"
+Set-Alias -Name "ln" -Value "ln"
+Set-Alias -Name "lh" -Value "lh"
+Set-Alias -Name "ll" -Value "ll"
+Set-Alias -Name "lt3" -Value "lt3"
 
 
 Set-Alias -Name "myip" -Value "PublicIp" # Create an alias for My-Ping function with the name "mping"
@@ -41,33 +41,23 @@ Set-Alias -Name "sync" -Value "SyncProfile" # Create an alias for SyncProfile
 
 
 # Base list 1
-    function ls { eza --icons --color=always --group-directories-first  @args }
-
-    # All (including hidden)
-    function la { eza --icons --all --color=always --group-directories-first @args }
-
-    # Only directories
-    function ld { eza --icons --color=always --group-directories-first -D @args }
-
-    # Only files
-    function lf { eza --icons --color=always -f @args }
-
-    # Long format (with size, date)
-    function ll {  eza --icons --long --color=always --group-directories-first --sort=modified --reverse @args  }
-
-    # Long + human readable size
-    function lh { eza --long --icons --color=always --group-directories-first --sort=size --total-size --reverse  @args }
-
-    # Sort by type (folders first, then files by type)
-    function lx { eza --long --icons --color=always --group-directories-first --sort=extension  @args }
-
-    # Sort by name
-    function ln { eza --icons --color=always --group-directories-first --sort=name @args }
-
-
-    # Show tree view (recursive up to 2 levels)
-    function lt3 {eza --icons --level=3 --long --color=always --group-directories-first --sort=modified --reverse @args}
-
+function ls { eza --icons --color=always --group-directories-first  @args }
+# All (including hidden)
+function la { eza --icons --all --color=always --group-directories-first @args }
+# Only directories
+function ld { eza --icons --color=always --group-directories-first -D @args }
+# Only files
+function lf { eza --icons --color=always -f @args }
+# Long format (with size, date)
+function ll {  eza --icons --long --color=always --group-directories-first --sort=modified --reverse @args  }
+# Long + human readable size
+function lh { eza --long --icons --color=always --group-directories-first --sort=size --total-size --reverse  @args }
+# Sort by type (folders first, then files by type)
+function lx { eza --long --icons --color=always --group-directories-first --sort=extension  @args }
+# Sort by name
+function ln { eza --icons --color=always --group-directories-first --sort=name @args }
+# Show tree view (recursive up to 2 levels)
+function lt3 {eza --icons --level=3 --long --color=always --group-directories-first --sort=modified --reverse @args}
 
 function My-Ping {
     param(
