@@ -1,4 +1,4 @@
-winget install Starship 
+winget install Starship MartiCliment.UniGetUI eza-community.eza sharkdp.bat ajeetdsouza.zoxide
 #create config file
 mkdir -p ~/.config && touch ~/.config/starship.toml
 
@@ -35,20 +35,12 @@ Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
 # Restart the powershell with new data:
 . $PROFILE
 
-
-
 #https://github.com/surajp/sfdx-powershell-autocomplete
-
-
 Install-Module -Name Terminal-Icons -Repository PSGallery #https://github.com/devblackops/Terminal-Icons
 
 # Initialize Terminal-Icons
 Import-Module -Name Terminal-Icons
 
-#Install BAT
-winget install sharkdp.bat
-
-winget install ajeetdsouza.zoxide
 
 
 #Install FiraCode:
