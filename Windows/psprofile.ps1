@@ -22,13 +22,14 @@ Set-Alias np notepad
 Set-Alias c cls
 set-alias cat bat -Option AllScope
  # Define quick short aliases for productivity
- Set-Alias ll ll
+ Set-Alias l l
  Set-Alias la la
  Set-Alias lf lf
  Set-Alias ld ld
  Set-Alias lx lx
  Set-Alias lt lt
  Set-Alias ln ln
+ Set-Alias ll ll
  Set-Alias lh lh
  Set-Alias lt3 lt3
 
@@ -38,7 +39,7 @@ Set-Alias -Name "sync" -Value "SyncProfile" # Create an alias for SyncProfile
 Set-Alias -Name "ll" -Value "ListLibrary"
 
 # Base list 1
-    function ls { eza --icons --color=always --group-directories-first  @args }
+    function l { eza --icons --color=always --group-directories-first  @args }
 
     # All (including hidden)
     function la { eza --icons --all --color=always --group-directories-first @args }
