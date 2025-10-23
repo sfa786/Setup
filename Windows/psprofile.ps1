@@ -22,21 +22,23 @@ Set-Alias np notepad
 Set-Alias c cls
 set-alias cat bat -Option AllScope
  # Define quick short aliases for productivity
- Set-Alias ls ls
- Set-Alias la la
- Set-Alias lf lf
- Set-Alias ld ld
- Set-Alias lx lx
- Set-Alias lt lt
- Set-Alias ln ln
- Set-Alias ll ll
- Set-Alias lh lh
- Set-Alias lt3 lt3
+ Remove-Item Alias:ls -Force -ErrorAction SilentlyContinue
+ 
+  Set-Alias -Name "ls" -Value "ls"
+  Set-Alias -Name "lf" -Value "lf"
+  Set-Alias -Name "ld" -Value "ld"
+  Set-Alias -Name "lt" -Value "lt"
+  Set-Alias -Name "lx" -Value "lx"
+  Set-Alias -Name "ln" -Value "ln"
+  Set-Alias -Name "lh" -Value "lh"
+  Set-Alias -Name "ll" -Value "ll"
+  Set-Alias -Name "lt3" -Value "lt3"
+
 
 Set-Alias -Name "myip" -Value "PublicIp" # Create an alias for My-Ping function with the name "mping"
 Set-Alias -Name "p" -Value "My-Ping" # Create an alias for My-Ping function with the name "mping"
 Set-Alias -Name "sync" -Value "SyncProfile" # Create an alias for SyncProfile
-Set-Alias -Name "ll" -Value "ListLibrary"
+
 
 # Base list 1
     function ls { eza --icons --color=always --group-directories-first  @args }
