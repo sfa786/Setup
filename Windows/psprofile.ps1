@@ -21,40 +21,50 @@ Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
 Set-Alias np notepad
 Set-Alias c cls
 set-alias cat bat -Option AllScope
-set-Alias ls get-childItem -Force
-
-Set-Alias la la
-Set-Alias ld ld
-Set-Alias lf lf
-Set-Alias lh lh
+ # Define quick short aliases for productivity
+ Set-Alias ls ls
+ Set-Alias la la
+ Set-Alias lf lf
+ Set-Alias ld ld
+ Set-Alias lx lx
+ Set-Alias lt lt
+ Set-Alias ln ln
+ Set-Alias lh lh
+ Set-Alias lt3 lt3
 
 Set-Alias -Name "myip" -Value "PublicIp" # Create an alias for My-Ping function with the name "mping"
 Set-Alias -Name "p" -Value "My-Ping" # Create an alias for My-Ping function with the name "mping"
 Set-Alias -Name "sync" -Value "SyncProfile" # Create an alias for SyncProfile
 Set-Alias -Name "ll" -Value "ListLibrary"
 
-# Show all items (including hidden/system)
-function la {
-    Get-ChildItem -Force @Args
-}
+# Base list 1
+    function ls { eza --icons --color=always --group-directories-first  @args }
+
+    # All (including hidden)
+    function la { eza --icons --all --color=always --group-directories-first @args }
+
+    # Only directories
+    function ld { eza --icons --color=always --group-directories-first -D @args }
+
+    # Only files
+    function lf { eza --icons --color=always -f @args }
+
+    # Long format (with size, date)
+    function ll {  eza --icons --long --color=always --group-directories-first --sort=modified --reverse @args  }
+
+    # Long + human readable size
+    function lh { eza --long --icons --color=always --group-directories-first --sort=size --total-size --reverse  @args }
+
+    # Sort by type (folders first, then files by type)
+    function lx { eza --long --icons --color=always --group-directories-first --sort=extension  @args }
+
+    # Sort by name
+    function ln { eza --icons --color=always --group-directories-first --sort=name @args }
 
 
-# Show only directories
-function ld {
-    Get-ChildItem -Force -Directory @Args
-}
+    # Show tree view (recursive up to 2 levels)
+    function lt3 {eza --icons --level=3 --long --color=always --group-directories-first --sort=modified --reverse @args}
 
-
-# Show only files
-function lf {
-    Get-ChildItem -Force -File @Args
-}
-
-
-# Show only hidden files and folders
-function lh {
-    Get-ChildItem -Force -Hidden @Args
-}
 
 function My-Ping {
     param(
