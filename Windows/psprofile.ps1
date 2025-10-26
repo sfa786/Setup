@@ -23,6 +23,16 @@ Set-Alias c cls
 set-alias cat bat 
  # Define quick short aliases for productivity
  Remove-Item Alias:ls -Force -ErrorAction SilentlyContinue
+ # Remove conflicting aliases if exist
+Remove-Item Alias:ls -ErrorAction SilentlyContinue
+Remove-Item Alias:la -ErrorAction SilentlyContinue
+Remove-Item Alias:ld -ErrorAction SilentlyContinue
+Remove-Item Alias:lf -ErrorAction SilentlyContinue
+Remove-Item Alias:ll -ErrorAction SilentlyContinue
+Remove-Item Alias:lh -ErrorAction SilentlyContinue
+Remove-Item Alias:lx -ErrorAction SilentlyContinue
+Remove-Item Alias:ln -ErrorAction SilentlyContinue
+Remove-Item Alias:lt3 -ErrorAction SilentlyContinue
  
 Set-Alias ll ll 
 Set-Alias ls ls 
