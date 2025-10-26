@@ -40,15 +40,15 @@ Remove-Item Alias:ln -ErrorAction SilentlyContinue
 Remove-Item Alias:lt3 -ErrorAction SilentlyContinue
 
  
-Set-Alias ll ll 
-Set-Alias ls ls 
-Set-Alias la la 
-Set-Alias lf lf 
-Set-Alias ld ld 
-Set-Alias lh lh 
-Set-Alias lx lx 
-Set-Alias ln ln 
-Set-Alias lt3 lt3 
+# Set-Alias ll ll 
+# Set-Alias ls ls 
+# Set-Alias la la 
+# Set-Alias lf lf 
+# Set-Alias ld ld 
+# Set-Alias lh lh 
+# Set-Alias lx lx 
+# Set-Alias ln ln 
+# Set-Alias lt3 lt3 
 
 
 Set-Alias -Name "myip" -Value "PublicIp" # Create an alias for My-Ping function with the name "mping"
