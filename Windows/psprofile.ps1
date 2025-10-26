@@ -24,7 +24,7 @@ Set-Alias c cls
 Remove-Item Alias:cat -ErrorAction SilentlyContinue
 
 # Now create your cat -> batcat mapping
-Set-Alias -Name cat -Value batcat -Scope Global -Force
+Set-Alias -Name cat -Value bat -Scope Global -Force
 
  # Define quick short aliases for productivity
  Remove-Item Alias:ls -Force -ErrorAction SilentlyContinue
