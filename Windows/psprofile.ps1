@@ -38,7 +38,7 @@ Remove-Item Alias:lh -ErrorAction SilentlyContinue
 Remove-Item Alias:lx -ErrorAction SilentlyContinue
 Remove-Item Alias:ln -ErrorAction SilentlyContinue
 Remove-Item Alias:lt3 -ErrorAction SilentlyContinue
-Remove-Item Alias:lt -ErrorAction SilentlyContinue
+
  
 Set-Alias ll ll 
 Set-Alias ls ls 
@@ -48,7 +48,6 @@ Set-Alias ld ld
 Set-Alias lh lh 
 Set-Alias lx lx 
 Set-Alias ln ln 
-Set-Alias lt lt 
 Set-Alias lt3 lt3 
 
 
