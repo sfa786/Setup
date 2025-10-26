@@ -21,7 +21,7 @@ Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
 Set-Alias np notepad
 Set-Alias c cls
 # Force remove protected alias first
-Remove-Item -Path Alias:cat -Force -ErrorAction SilentlyContinue
+Remove-Item Alias:cat -ErrorAction SilentlyContinue
 
 # Now create your cat -> batcat mapping
 Set-Alias -Name cat -Value batcat -Scope Global -Force
